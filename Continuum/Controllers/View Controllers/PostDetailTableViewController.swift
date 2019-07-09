@@ -8,41 +8,87 @@
 
 import UIKit
 
-class PostDetailTableViewController: UITableViewController {
+class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
     
-    var post: Post?
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func commentButtonTapped(_ sender: UIButton) {
+        presentCommentAlert()
+    }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func followPostButtonTapped(_ sender: UIButton) {
+    }
+    
+    func updateViews() {
+        photoImageView.image = post?.photo
+        self.tableView.reloadData()
+    }
+    
+    func presentCommentAlert() {
+        let alertController = UIAlertController(title: "Leave a Comment", message: "Say something below...", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) -> Void in
+            textField.placeholder = "What would you like to say?"
+            textField.autocorrectionType = .yes
+            textField.autocapitalizationType = .sentences
+            textField.delegate = self
+        }
+        
+        let commentAction = UIAlertAction(title: "Comment", style: .default) { (_) in
+            guard let commentText = alertController.textFields?.first?.text else {return}
+            if commentText != "" {
+                guard let post = self.post else {return}
+                PostController.sharedInstance.addComment(with: commentText, post: post, completion: { (Comment) in
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alertController.addAction(commentAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if let post = post {
+            return post.comments.count
+        }else {
+            return 0
+        }
     }
-
-    /*
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+        
+        guard let comment = post?.comments[indexPath.row] else {return UITableViewCell()}
+        
+        cell.textLabel?.text = comment.text
+        cell.detailTextLabel?.text = comment.timestamp.dateFormatter()
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

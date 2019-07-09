@@ -19,6 +19,7 @@
 		2C0D7F1E22D53EB5002CE498 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1D22D53EB5002CE498 /* Comment.swift */; };
 		2C0D7F2022D53FE4002CE498 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1F22D53FE4002CE498 /* PostController.swift */; };
 		2C0D7F2322D5430C002CE498 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */; };
+		2C0D7F2622D5572D002CE498 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F2522D5572D002CE498 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		2C0D7F1D22D53EB5002CE498 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		2C0D7F1F22D53FE4002CE498 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		2C0D7F2522D5572D002CE498 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		2C0D7F0D22D5374B002CE498 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D7F2422D55706002CE498 /* Helpers+Extensions */,
 				2C0D7F1022D53762002CE498 /* View Controllers */,
 				2C0D7F0F22D53759002CE498 /* Model Controllers */,
 			);
@@ -150,6 +153,14 @@
 				2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		2C0D7F2422D55706002CE498 /* Helpers+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C0D7F2522D5572D002CE498 /* DateFormatter.swift */,
+			);
+			path = "Helpers+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0D7F2622D5572D002CE498 /* DateFormatter.swift in Sources */,
 				2C0D7EFA22D53721002CE498 /* AppDelegate.swift in Sources */,
 				2C0D7F1E22D53EB5002CE498 /* Comment.swift in Sources */,
 				2C0D7F1622D53981002CE498 /* PostListTableViewController.swift in Sources */,
