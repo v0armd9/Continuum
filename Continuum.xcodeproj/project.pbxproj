@@ -15,6 +15,8 @@
 		2C0D7F1622D53981002CE498 /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1522D53981002CE498 /* PostListTableViewController.swift */; };
 		2C0D7F1822D539D6002CE498 /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1722D539D6002CE498 /* PostDetailTableViewController.swift */; };
 		2C0D7F1A22D53A6B002CE498 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1922D53A6B002CE498 /* AddPostTableViewController.swift */; };
+		2C0D7F1C22D53B1A002CE498 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1B22D53B1A002CE498 /* Post.swift */; };
+		2C0D7F1E22D53EB5002CE498 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1D22D53EB5002CE498 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		2C0D7F1522D53981002CE498 /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
 		2C0D7F1722D539D6002CE498 /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
 		2C0D7F1922D53A6B002CE498 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
+		2C0D7F1B22D53B1A002CE498 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2C0D7F1D22D53EB5002CE498 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 		2C0D7F0C22D53746002CE498 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D7F1B22D53B1A002CE498 /* Post.swift */,
+				2C0D7F1D22D53EB5002CE498 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,9 +221,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C0D7EFA22D53721002CE498 /* AppDelegate.swift in Sources */,
+				2C0D7F1E22D53EB5002CE498 /* Comment.swift in Sources */,
 				2C0D7F1622D53981002CE498 /* PostListTableViewController.swift in Sources */,
 				2C0D7F1A22D53A6B002CE498 /* AddPostTableViewController.swift in Sources */,
 				2C0D7F1822D539D6002CE498 /* PostDetailTableViewController.swift in Sources */,
+				2C0D7F1C22D53B1A002CE498 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
