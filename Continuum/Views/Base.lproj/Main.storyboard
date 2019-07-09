@@ -18,15 +18,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3S5-6y-bsO">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="549" id="3S5-6y-bsO" customClass="PostTableViewCell" customModule="Continuum" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="549"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3S5-6y-bsO" id="ZMF-Ce-E9a">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="548.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iDU-00-mbi">
+                                            <rect key="frame" x="20" y="19" width="374" height="373.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="iDU-00-mbi" secondAttribute="height" multiplier="1:1" id="pDT-4E-QKP"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Caption)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzq-pj-Y4z">
+                                            <rect key="frame" x="20" y="404.5" width="374" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments: (Comment Count)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKI-2t-l63">
+                                            <rect key="frame" x="20" y="437" width="374" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zzq-pj-Y4z" firstAttribute="width" secondItem="iDU-00-mbi" secondAttribute="width" id="2Cx-9b-C6j"/>
+                                        <constraint firstItem="iDU-00-mbi" firstAttribute="width" secondItem="ZMF-Ce-E9a" secondAttribute="width" multiplier="0.9" constant="1" id="Ysw-aj-P6m"/>
+                                        <constraint firstItem="eKI-2t-l63" firstAttribute="width" secondItem="Zzq-pj-Y4z" secondAttribute="width" id="c4o-JP-yhI"/>
+                                        <constraint firstItem="eKI-2t-l63" firstAttribute="top" secondItem="Zzq-pj-Y4z" secondAttribute="bottom" constant="12" id="dzH-yF-2aX"/>
+                                        <constraint firstItem="iDU-00-mbi" firstAttribute="top" secondItem="ZMF-Ce-E9a" secondAttribute="topMargin" constant="8" id="e9f-dv-kle"/>
+                                        <constraint firstItem="iDU-00-mbi" firstAttribute="centerX" secondItem="ZMF-Ce-E9a" secondAttribute="centerX" id="etR-M7-bgJ"/>
+                                        <constraint firstItem="Zzq-pj-Y4z" firstAttribute="top" secondItem="iDU-00-mbi" secondAttribute="bottom" constant="12" id="fsT-v5-vS8"/>
+                                        <constraint firstItem="eKI-2t-l63" firstAttribute="centerX" secondItem="Zzq-pj-Y4z" secondAttribute="centerX" id="jb2-7g-9ET"/>
+                                        <constraint firstItem="Zzq-pj-Y4z" firstAttribute="centerX" secondItem="iDU-00-mbi" secondAttribute="centerX" id="kCK-eW-Mef"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gkG-i1-L2F" kind="show" id="pKS-IL-itK"/>
+                                    <outlet property="captionLabel" destination="Zzq-pj-Y4z" id="2Fu-gX-WMG"/>
+                                    <outlet property="commentCountLabel" destination="eKI-2t-l63" id="ZcW-Im-eVa"/>
+                                    <outlet property="postImageView" destination="iDU-00-mbi" id="24L-7Z-4nH"/>
+                                    <segue destination="gkG-i1-L2F" kind="show" identifier="toPostDetailView" id="pKS-IL-itK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -39,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7uZ-r7-jtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="-475"/>
+            <point key="canvasLocation" x="1066.6666666666667" y="-475.44642857142856"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="C14-xl-Jgd">
