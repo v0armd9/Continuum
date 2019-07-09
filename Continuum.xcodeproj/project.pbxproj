@@ -17,6 +17,8 @@
 		2C0D7F1A22D53A6B002CE498 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1922D53A6B002CE498 /* AddPostTableViewController.swift */; };
 		2C0D7F1C22D53B1A002CE498 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1B22D53B1A002CE498 /* Post.swift */; };
 		2C0D7F1E22D53EB5002CE498 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1D22D53EB5002CE498 /* Comment.swift */; };
+		2C0D7F2022D53FE4002CE498 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1F22D53FE4002CE498 /* PostController.swift */; };
+		2C0D7F2322D5430C002CE498 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		2C0D7F1922D53A6B002CE498 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
 		2C0D7F1B22D53B1A002CE498 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2C0D7F1D22D53EB5002CE498 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		2C0D7F1F22D53FE4002CE498 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				2C0D7EFD22D53721002CE498 /* Main.storyboard */,
+				2C0D7F2122D542E8002CE498 /* Custom Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 		2C0D7F0F22D53759002CE498 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D7F1F22D53FE4002CE498 /* PostController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -136,6 +142,14 @@
 				2C0D7F1322D537C1002CE498 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C0D7F2122D542E8002CE498 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +237,9 @@
 				2C0D7EFA22D53721002CE498 /* AppDelegate.swift in Sources */,
 				2C0D7F1E22D53EB5002CE498 /* Comment.swift in Sources */,
 				2C0D7F1622D53981002CE498 /* PostListTableViewController.swift in Sources */,
+				2C0D7F2322D5430C002CE498 /* PostTableViewCell.swift in Sources */,
 				2C0D7F1A22D53A6B002CE498 /* AddPostTableViewController.swift in Sources */,
+				2C0D7F2022D53FE4002CE498 /* PostController.swift in Sources */,
 				2C0D7F1822D539D6002CE498 /* PostDetailTableViewController.swift in Sources */,
 				2C0D7F1C22D53B1A002CE498 /* Post.swift in Sources */,
 			);
