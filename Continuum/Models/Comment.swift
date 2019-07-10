@@ -8,7 +8,16 @@
 
 import Foundation
 
-class Comment {
+class Comment: SearchableRecordDelegate {
+    
+    func matches(searchTerm: String) -> Bool {
+        if text.lowercased().contains(searchTerm.lowercased()) {
+            return true
+        }else {
+            return false
+        }
+    }
+    
     var text: String
     var timestamp: Date
     weak var post: Post?

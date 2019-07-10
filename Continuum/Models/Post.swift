@@ -9,7 +9,22 @@
 import UIKit
 import CloudKit
 
-class Post {
+class Post: SearchableRecordDelegate {
+    
+    func matches(searchTerm: String) -> Bool {
+        if caption.lowercased().contains(searchTerm.lowercased()) {
+            return true
+        } else {
+            for comment in comments {
+                if comment.text.lowercased().contains(searchTerm.lowercased()) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    
     var photoData: Data?
     var timestamp: Date
     var caption: String
@@ -18,8 +33,8 @@ class Post {
     var photo: UIImage? {
         get {
             guard let data = photoData else {return nil}
-                return UIImage(data: data)
-            } set {
+            return UIImage(data: data)
+        } set {
             photoData = newValue?.jpegData(compressionQuality: 0.5)
         }
     }

@@ -55,7 +55,7 @@ class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
                 guard let post = self.post else {return}
                 PostController.sharedInstance.addComment(with: commentText, post: post, completion: { (Comment) in
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        self.updateViews()
                     }
                 })
             }

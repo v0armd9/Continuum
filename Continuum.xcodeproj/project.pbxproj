@@ -20,6 +20,7 @@
 		2C0D7F2022D53FE4002CE498 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F1F22D53FE4002CE498 /* PostController.swift */; };
 		2C0D7F2322D5430C002CE498 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */; };
 		2C0D7F2622D5572D002CE498 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F2522D5572D002CE498 /* DateFormatter.swift */; };
+		2C5F72F022D691FC000727E7 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F72EF22D691FC000727E7 /* SearchableRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		2C0D7F1F22D53FE4002CE498 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		2C0D7F2222D5430C002CE498 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		2C0D7F2522D5572D002CE498 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		2C5F72EF22D691FC000727E7 /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				2C0D7F1B22D53B1A002CE498 /* Post.swift */,
 				2C0D7F1D22D53EB5002CE498 /* Comment.swift */,
+				2C5F72EF22D691FC000727E7 /* SearchableRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5F72F022D691FC000727E7 /* SearchableRecord.swift in Sources */,
 				2C0D7F2622D5572D002CE498 /* DateFormatter.swift in Sources */,
 				2C0D7EFA22D53721002CE498 /* AppDelegate.swift in Sources */,
 				2C0D7F1E22D53EB5002CE498 /* Comment.swift in Sources */,

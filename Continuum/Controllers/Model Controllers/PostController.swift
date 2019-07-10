@@ -18,9 +18,10 @@ class PostController {
     
     //Creates a function that takes in text(String) and a post(Post)
     //--along with a closure that takes in a comment and returns void
-    func addComment(with text: String, post: Post, completion: @escaping(Comment) -> Void) {
+    func addComment(with text: String, post: Post, completion: @escaping (Comment) -> Void) {
         let newComment = Comment(text: text, post: post)
         post.comments.append(newComment)
+        completion(newComment)
     }
     
     func createPostWith(image: UIImage, caption: String, completion: @escaping(Post?) -> Void) {
