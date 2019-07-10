@@ -14,6 +14,7 @@ class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
     
     var post: Post? {
         didSet {
+            loadViewIfNeeded()
             updateViews()
         }
     }
@@ -33,7 +34,8 @@ class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
     }
     
     func updateViews() {
-        photoImageView.image = post?.photo
+        guard let post = post else {return}
+        photoImageView.image = post.photo
         self.tableView.reloadData()
     }
     
