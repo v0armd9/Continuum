@@ -14,7 +14,6 @@ class AddPostTableViewController: UITableViewController, PhotoSelectorViewContro
     
     @IBOutlet weak var captionTextField: UITextField!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -25,13 +24,24 @@ class AddPostTableViewController: UITableViewController, PhotoSelectorViewContro
     }
     
     @IBAction func addPostButtonTapped(_ sender: UIButton) {
-        if let image = selectedImage, let caption = captionTextField.text {
+        if selectedImage == nil {
+            missingItemAlert(string: "photo")
+        } else if captionTextField.text == ""{
+            missingItemAlert(string: "caption")
+        } else if let image = selectedImage, let caption = captionTextField.text {
             PostController.sharedInstance.createPostWith(image: image, caption: caption) { (Post) in
+                self.tabBarController?.selectedIndex = 0
             }
         } else {
             return
         }
-        self.tabBarController?.selectedIndex = 0
+    }
+    
+    func missingItemAlert(string: String) {
+        let missingAlert = UIAlertController(title: "Uh Oh 🙃", message: "Looks like we're missing a \(string), please add one before continuing", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel)
+        missingAlert.addAction(dismissAction)
+        present(missingAlert, animated: true, completion: nil)
     }
     
     func photoSelectorViewControllerSelected(image: UIImage) {

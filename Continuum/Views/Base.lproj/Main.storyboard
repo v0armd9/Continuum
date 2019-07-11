@@ -93,10 +93,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="zCi-3X-IFE">
+                            <tableViewSection id="zCi-3X-IFE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="413" id="kOW-Tr-Pym">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="413"/>
+                                        <rect key="frame" x="0.0" y="35" width="414" height="413"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kOW-Tr-Pym" id="ruE-pU-6vR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="412.5"/>
@@ -119,10 +119,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="AdP-Xo-doW">
+                            <tableViewSection id="AdP-Xo-doW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QFn-vG-ESv">
-                                        <rect key="frame" x="0.0" y="524.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="484" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QFn-vG-ESv" id="OsS-V5-vyv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -145,10 +145,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-3" id="tOy-4w-O3e">
+                            <tableViewSection id="tOy-4w-O3e">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VIs-nH-x6A">
-                                        <rect key="frame" x="0.0" y="624.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="564" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VIs-nH-x6A" id="qSd-Gr-nPV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
