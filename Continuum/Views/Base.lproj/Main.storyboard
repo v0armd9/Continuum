@@ -101,26 +101,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="412.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DSE-DR-y4j">
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-yp-hIV">
                                                     <rect key="frame" x="20" y="11" width="374" height="391"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Q-ho-HF5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="412.5"/>
-                                                    <state key="normal" title="Select Image"/>
                                                     <connections>
-                                                        <action selector="selectImageButtonTapped:" destination="mb4-7u-2Ha" eventType="touchUpInside" id="K3C-dI-UM6"/>
+                                                        <segue destination="86T-ir-ggx" kind="embed" id="W9j-ok-TQw"/>
                                                     </connections>
-                                                </button>
+                                                </containerView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="N3Q-ho-HF5" firstAttribute="leading" secondItem="ruE-pU-6vR" secondAttribute="leading" id="Pc6-UZ-Dc8"/>
-                                                <constraint firstAttribute="trailing" secondItem="N3Q-ho-HF5" secondAttribute="trailing" id="SiZ-wo-pHm"/>
-                                                <constraint firstItem="DSE-DR-y4j" firstAttribute="top" secondItem="ruE-pU-6vR" secondAttribute="topMargin" id="Z92-mQ-Sxr"/>
-                                                <constraint firstItem="N3Q-ho-HF5" firstAttribute="top" secondItem="ruE-pU-6vR" secondAttribute="top" id="cN2-zf-Hkv"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="DSE-DR-y4j" secondAttribute="trailing" id="jhs-YJ-ijQ"/>
-                                                <constraint firstItem="DSE-DR-y4j" firstAttribute="leading" secondItem="ruE-pU-6vR" secondAttribute="leadingMargin" id="roM-yf-Pkd"/>
-                                                <constraint firstAttribute="bottom" secondItem="N3Q-ho-HF5" secondAttribute="bottom" id="se0-JC-yV7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="DSE-DR-y4j" secondAttribute="bottom" id="uWI-vM-anU"/>
+                                                <constraint firstItem="kgj-yp-hIV" firstAttribute="top" secondItem="ruE-pU-6vR" secondAttribute="topMargin" id="4Jh-Ha-e6n"/>
+                                                <constraint firstItem="kgj-yp-hIV" firstAttribute="leading" secondItem="ruE-pU-6vR" secondAttribute="leadingMargin" id="Gv8-8W-xzD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kgj-yp-hIV" secondAttribute="bottom" id="X0Z-JA-JGJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kgj-yp-hIV" secondAttribute="trailing" id="a6Y-Jt-Bkx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -349,6 +341,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8w-ch-Seb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-719" y="-135"/>
+        </scene>
+        <!--Photo Selector View Controller-->
+        <scene sceneID="DyK-EP-HfE">
+            <objects>
+                <viewController id="86T-ir-ggx" customClass="PhotoSelectorViewController" customModule="Continuum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9X3-WT-7rl">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="391"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Q-ho-HF5">
+                                <rect key="frame" x="142.5" y="180.5" width="89" height="30"/>
+                                <state key="normal" title="Select Image"/>
+                                <connections>
+                                    <action selector="selectImageButtonTapped:" destination="mb4-7u-2Ha" eventType="touchUpInside" id="K3C-dI-UM6"/>
+                                    <action selector="selectImageButtonTapped:" destination="86T-ir-ggx" eventType="touchUpInside" id="WOk-wp-ZYw"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DSE-DR-y4j">
+                                <rect key="frame" x="-8.5" y="0.0" width="391" height="391"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="391" id="Df6-X6-HQL"/>
+                                    <constraint firstAttribute="width" secondItem="DSE-DR-y4j" secondAttribute="height" multiplier="1:1" id="rFz-Yf-iMl"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DSE-DR-y4j" firstAttribute="centerX" secondItem="9X3-WT-7rl" secondAttribute="centerX" id="Y3q-uB-1b9"/>
+                            <constraint firstItem="N3Q-ho-HF5" firstAttribute="centerY" secondItem="9X3-WT-7rl" secondAttribute="centerY" id="iw1-vR-4XJ"/>
+                            <constraint firstItem="N3Q-ho-HF5" firstAttribute="centerX" secondItem="9X3-WT-7rl" secondAttribute="centerX" id="l8s-ei-lYv"/>
+                            <constraint firstItem="DSE-DR-y4j" firstAttribute="centerY" secondItem="9X3-WT-7rl" secondAttribute="centerY" id="xv8-YX-gZ6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="selectImageButton" destination="N3Q-ho-HF5" id="NJ6-nw-URv"/>
+                        <outlet property="selectedPhotoImageView" destination="DSE-DR-y4j" id="4gn-1K-siq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Vn-k4-QA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110" y="246"/>
         </scene>
     </scenes>
 </document>
