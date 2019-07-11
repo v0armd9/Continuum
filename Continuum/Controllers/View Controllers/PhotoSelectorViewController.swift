@@ -23,6 +23,12 @@ class PhotoSelectorViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        selectImageButton.setTitle("Select Image", for: .normal)
+        selectedPhotoImageView.image = nil
+    }
+    
     @IBAction func selectImageButtonTapped(_ sender: UIButton) {
         presentImagePickerActionSheet()
         selectImageButton.setTitle("", for: .normal)

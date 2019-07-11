@@ -8,10 +8,10 @@
 
 import UIKit
 
-class AddPostTableViewController: UITableViewController {
+class AddPostTableViewController: UITableViewController, PhotoSelectorViewControllerDelegate {
     
-    @IBOutlet weak var newPostImageView: UIImageView!
-    @IBOutlet weak var selectButton: UIButton!
+    var selectedImage: UIImage?
+    
     @IBOutlet weak var captionTextField: UITextField!
     
 
@@ -21,26 +21,21 @@ class AddPostTableViewController: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        selectButton.setTitle("Select Image", for: .normal)
-        newPostImageView.image = nil
         captionTextField.text = ""
     }
     
-    @IBAction func selectImageButtonTapped(_ sender: UIButton) {
-        newPostImageView.image = #imageLiteral(resourceName: "ice")
-        selectButton.setTitle("", for: .normal)
-    }
-    
     @IBAction func addPostButtonTapped(_ sender: UIButton) {
-        guard let image = newPostImageView.image,
-        let caption = captionTextField.text
-        else {return}
-        if newPostImageView.image != nil && captionTextField.text != "" {
+        if let image = selectedImage, let caption = captionTextField.text {
             PostController.sharedInstance.createPostWith(image: image, caption: caption) { (Post) in
-                
             }
+        } else {
+            return
         }
         self.tabBarController?.selectedIndex = 0
+    }
+    
+    func photoSelectorViewControllerSelected(image: UIImage) {
+        selectedImage = image
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -55,5 +50,12 @@ class AddPostTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "photoSelectionSegue" {
+            let destinationVC = segue.destination as? PhotoSelectorViewController
+            destinationVC?.delegate = self
+        }
     }
 }

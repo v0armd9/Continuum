@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -104,7 +105,7 @@
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-yp-hIV">
                                                     <rect key="frame" x="20" y="11" width="374" height="391"/>
                                                     <connections>
-                                                        <segue destination="86T-ir-ggx" kind="embed" id="W9j-ok-TQw"/>
+                                                        <segue destination="86T-ir-ggx" kind="embed" identifier="photoSelectionSegue" id="W9j-ok-TQw"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -373,6 +374,7 @@
                             <constraint firstItem="N3Q-ho-HF5" firstAttribute="centerX" secondItem="9X3-WT-7rl" secondAttribute="centerX" id="l8s-ei-lYv"/>
                             <constraint firstItem="DSE-DR-y4j" firstAttribute="centerY" secondItem="9X3-WT-7rl" secondAttribute="centerY" id="xv8-YX-gZ6"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bud-23-lug"/>
                     </view>
                     <connections>
                         <outlet property="selectImageButton" destination="N3Q-ho-HF5" id="NJ6-nw-URv"/>
