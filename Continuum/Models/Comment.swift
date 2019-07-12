@@ -51,7 +51,7 @@ extension CKRecord {
         self.init(recordType: CommentConstants.recordType )
         self.setValue(comment.text, forKey: CommentConstants.textKey)
         self.setValue(comment.timestamp, forKey: CommentConstants.timestampKey)
-        self.setValue(comment.recordID, forKey: CommentConstants.recordIDKey)
+       // self.setValue(comment.recordID, forKey: CommentConstants.recordIDKey)
         self.setValue(comment.recordReference, forKey: CommentConstants.recordReferenceKey)
     }
 }

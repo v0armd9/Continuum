@@ -23,6 +23,7 @@ class PostListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        performFullSync(completion: nil)
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = 500
     }
@@ -31,6 +32,16 @@ class PostListTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         resultsArray = PostController.sharedInstance.posts
+    }
+    
+    func performFullSync(completion:((Bool) -> Void)?) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        PostController.sharedInstance.fetchPosts { (posts) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                completion?(posts != nil)
+            }
+        }
     }
 
     // MARK: - Table view data source

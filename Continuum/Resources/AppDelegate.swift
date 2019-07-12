@@ -30,22 +30,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 completion(false)
                 return
             } else {
-                let rootViewController = self.window?.rootViewController
-                let errorTitle = "Please check your iCloud account in the Settings App of your Device"
-                switch status {
-                case .available:
-                    completion(true)
-                case .couldNotDetermine:
-                    rootViewController?.presentSimpleAlertWith(title: errorTitle, message:"Could not determine the status of your account" )
-                    completion(false)
-                case .noAccount:
-                    rootViewController?.presentSimpleAlertWith(title: errorTitle, message: "No iCloud account was found")
-                    completion(false)
-                case .restricted:
-                    rootViewController?.presentSimpleAlertWith(title: errorTitle, message: "Your iCloud account is restricted")
-                    completion(false)
-                default:
-                    completion(false)
+                DispatchQueue.main.async {
+                    let rootViewController = self.window?.rootViewController
+                    let errorTitle = "Please check your iCloud account in the Settings App of your Device"
+                    switch status {
+                    case .available:
+                        completion(true)
+                    case .couldNotDetermine:
+                        rootViewController?.presentSimpleAlertWith(title: errorTitle, message:"Could not determine the status of your account" )
+                        completion(false)
+                    case .noAccount:
+                        rootViewController?.presentSimpleAlertWith(title: errorTitle, message: "No iCloud account was found")
+                        completion(false)
+                    case .restricted:
+                        rootViewController?.presentSimpleAlertWith(title: errorTitle, message: "Your iCloud account is restricted")
+                        completion(false)
+                    default:
+                        completion(false)
+                    }
                 }
             }
         }

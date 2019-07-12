@@ -30,7 +30,9 @@ class AddPostTableViewController: UITableViewController, PhotoSelectorViewContro
             missingItemAlert(string: "caption")
         } else if let image = selectedImage, let caption = captionTextField.text {
             PostController.sharedInstance.createPostWith(image: image, caption: caption) { (Post) in
-                self.tabBarController?.selectedIndex = 0
+                DispatchQueue.main.async {
+                    self.tabBarController?.selectedIndex = 0
+                }
             }
         } else {
             return

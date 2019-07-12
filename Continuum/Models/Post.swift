@@ -62,7 +62,7 @@ class Post: SearchableRecordDelegate {
             else {return nil}
         
         
-        self.init(photo: photo, caption: caption, timestamp: timestamp, comments: [], recordID: record.recordID)
+        self.init(photo: photo, caption: caption, timestamp: timestamp, recordID: record.recordID)
     }
     
 //     init?(record: CKRecord) {
@@ -105,8 +105,7 @@ extension CKRecord {
         self.setValue(post.caption, forKey: PostConstants.captionKey)
         self.setValue(post.timestamp, forKey: PostConstants.timestampKey)
         self.setValue(post.imageAsset, forKey: PostConstants.imageAssetKey)
-        self.setValue(post.recordID, forKey: PostConstants.recordIDKey)
-        self.setValue(post.comments, forKey: PostConstants.commentsKey)
+//        self.setValue(post.comments, forKey: PostConstants.commentsKey)
     }
 }
 
@@ -116,5 +115,5 @@ struct PostConstants {
     fileprivate static let captionKey = "Caption"
     fileprivate static let timestampKey = "Timestamp"
     fileprivate static let imageAssetKey = "ImageAsset"
-    fileprivate static let commentsKey = "Comments"
+//    fileprivate static let commentsKey = "Comments"
 }

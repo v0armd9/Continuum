@@ -79,11 +79,11 @@
 		2C0D7EF822D53721002CE498 /* Continuum */ = {
 			isa = PBXGroup;
 			children = (
-				2C0D7F2422D55706002CE498 /* Helpers+Extensions */,
 				2C0D7F1122D537BF002CE498 /* Continuum.entitlements */,
 				2C0D7F0E22D53753002CE498 /* Views */,
 				2C0D7F0D22D5374B002CE498 /* Controllers */,
 				2C0D7F0C22D53746002CE498 /* Models */,
+				2C0D7F2422D55706002CE498 /* Helpers+Extensions */,
 				2C0D7F0B22D5373A002CE498 /* Resources */,
 			);
 			path = Continuum;
