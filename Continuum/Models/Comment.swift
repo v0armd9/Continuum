@@ -47,15 +47,22 @@ class Comment: SearchableRecordDelegate {
 }
 
 extension CKRecord {
+//    convenience init(comment: Comment) {
+//        self.init(recordType: CommentConstants.recordType )
+//        self.setValue(comment.text, forKey: CommentConstants.textKey)
+//        self.setValue(comment.timestamp, forKey: CommentConstants.timestampKey)
+//        self.setValue(comment.recordID, forKey: CommentConstants.recordIDKey)
+//        self.setValue(comment.recordReference, forKey: CommentConstants.recordReferenceKey)
+//    }
+//}
+
     convenience init(comment: Comment) {
-        self.init(recordType: CommentConstants.recordType )
+        self.init(recordType: CommentConstants.recordType, recordID: comment.recordID)
+        self.setValue(comment.recordReference, forKey: CommentConstants.recordReferenceKey)
         self.setValue(comment.text, forKey: CommentConstants.textKey)
         self.setValue(comment.timestamp, forKey: CommentConstants.timestampKey)
-       // self.setValue(comment.recordID, forKey: CommentConstants.recordIDKey)
-        self.setValue(comment.recordReference, forKey: CommentConstants.recordReferenceKey)
     }
 }
-
 struct CommentConstants {
     static let recordType = "Comment"
     static let recordReferenceKey = "RecordReference"
@@ -63,3 +70,4 @@ struct CommentConstants {
     fileprivate static let timestampKey = "Timestamp"
     fileprivate static let recordIDKey = "RecordID"
 }
+

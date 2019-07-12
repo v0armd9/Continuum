@@ -57,6 +57,7 @@ class Post: SearchableRecordDelegate {
         let timestamp = record[PostConstants.timestampKey] as? Date,
         let imageAsset = record[PostConstants.imageAssetKey] as? CKAsset,
         let commentCount = record[PostConstants.commentCountKey] as? Int
+        //let comments = record[PostConstants.commentsKey] as? [Comment]
         else {return nil}
         
         //This should never fail
@@ -104,7 +105,7 @@ class Post: SearchableRecordDelegate {
 
 extension CKRecord {
     convenience init(post: Post) {
-        self.init(recordType: PostConstants.recordType)
+        self.init(recordType: PostConstants.recordType, recordID: post.recordID)
         self.setValue(post.caption, forKey: PostConstants.captionKey)
         self.setValue(post.timestamp, forKey: PostConstants.timestampKey)
         self.setValue(post.imageAsset, forKey: PostConstants.imageAssetKey)
@@ -120,5 +121,5 @@ struct PostConstants {
     fileprivate static let timestampKey = "Timestamp"
     fileprivate static let imageAssetKey = "ImageAsset"
     fileprivate static let commentCountKey = "CommentCount"
-//    fileprivate static let commentsKey = "Comments"
+    fileprivate static let commentsKey = "Comments"
 }

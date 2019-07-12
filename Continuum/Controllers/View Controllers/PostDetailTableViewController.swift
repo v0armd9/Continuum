@@ -21,13 +21,13 @@ class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let post = post {
-            PostController.sharedInstance.fetchComment(for: post) { (comments) in
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
+//        if let post = post {
+//            PostController.sharedInstance.fetchComment(for: post) { (_) in
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
     }
     
     @IBAction func commentButtonTapped(_ sender: UIButton) {
@@ -49,7 +49,11 @@ class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
     func updateViews() {
         guard let post = post else {return}
         photoImageView.image = post.photo
-        self.tableView.reloadData()
+        PostController.sharedInstance.fetchComment(for: post) { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func presentCommentAlert() {
@@ -68,7 +72,8 @@ class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
                 guard let post = self.post else {return}
                 PostController.sharedInstance.addComment(with: commentText, post: post, completion: { (Comment) in
                     DispatchQueue.main.async {
-                        self.updateViews()
+                        //self.updateViews()
+                        self.tableView.reloadData()
                     }
                 })
             }

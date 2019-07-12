@@ -31,8 +31,8 @@ class PostController {
                 completion(nil)
                 return
             }
-            guard let record = record,
-                let comment = Comment(record: record, post: post) else {completion(nil); return}
+            guard let record = record  else {completion(nil); return}
+                let comment = Comment(record: record, post: post)
             self.incrementCommentCount(for: post, completion: nil)
             completion(comment)
         }
