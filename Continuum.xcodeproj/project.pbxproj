@@ -22,6 +22,7 @@
 		2C0D7F2622D5572D002CE498 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D7F2522D5572D002CE498 /* DateFormatter.swift */; };
 		2C5F72F022D691FC000727E7 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F72EF22D691FC000727E7 /* SearchableRecord.swift */; };
 		2CDA887C22D797D600D07CD5 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA887B22D797D600D07CD5 /* PhotoSelectorViewController.swift */; };
+		2CDA887E22D81E4C00D07CD5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA887D22D81E4C00D07CD5 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		2C0D7F2522D5572D002CE498 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		2C5F72EF22D691FC000727E7 /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		2CDA887B22D797D600D07CD5 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
+		2CDA887D22D81E4C00D07CD5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		2C0D7EF822D53721002CE498 /* Continuum */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D7F2422D55706002CE498 /* Helpers+Extensions */,
 				2C0D7F1122D537BF002CE498 /* Continuum.entitlements */,
 				2C0D7F0E22D53753002CE498 /* Views */,
 				2C0D7F0D22D5374B002CE498 /* Controllers */,
@@ -110,7 +113,6 @@
 		2C0D7F0D22D5374B002CE498 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2C0D7F2422D55706002CE498 /* Helpers+Extensions */,
 				2C0D7F1022D53762002CE498 /* View Controllers */,
 				2C0D7F0F22D53759002CE498 /* Model Controllers */,
 			);
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				2C0D7F2522D5572D002CE498 /* DateFormatter.swift */,
+				2CDA887D22D81E4C00D07CD5 /* UIViewControllerExtension.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				2C0D7F1622D53981002CE498 /* PostListTableViewController.swift in Sources */,
 				2C0D7F2322D5430C002CE498 /* PostTableViewCell.swift in Sources */,
 				2C0D7F1A22D53A6B002CE498 /* AddPostTableViewController.swift in Sources */,
+				2CDA887E22D81E4C00D07CD5 /* UIViewControllerExtension.swift in Sources */,
 				2C0D7F2022D53FE4002CE498 /* PostController.swift in Sources */,
 				2C0D7F1822D539D6002CE498 /* PostDetailTableViewController.swift in Sources */,
 				2C0D7F1C22D53B1A002CE498 /* Post.swift in Sources */,
