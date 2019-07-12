@@ -11,6 +11,80 @@ import CloudKit
 
 class Post: SearchableRecordDelegate {
     
+    // Class Properties
+    var photoData: Data?
+    var timestamp: Date
+    var caption: String
+    var comments: [Comment]
+    var recordID: CKRecord.ID
+    
+    var photo: UIImage? {
+        get {
+            guard let data = photoData else {return nil}
+            return UIImage(data: data)
+        } set {
+            photoData = newValue?.jpegData(compressionQuality: 0.5)
+        }
+    }
+    
+    var imageAsset: CKAsset? {
+        get {
+            let tempDirectory = NSTemporaryDirectory()
+            let tempDirectoryURL = URL(fileURLWithPath: tempDirectory)
+            let fileURL = tempDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+            do {
+                try photoData?.write(to: fileURL)
+            } catch let error {
+                print("Error writing to temp url \(error) \(error.localizedDescription)")
+            }
+            return CKAsset(fileURL: fileURL)
+        }
+    }
+    
+    init(photo: UIImage, caption: String, timestamp: Date = Date(), comments: [Comment] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        
+        self.caption = caption
+        self.timestamp = timestamp
+        self.comments = comments
+        self.recordID = recordID
+        self.photo = photo
+    }
+    
+    convenience init?(record: CKRecord) {
+        guard let caption = record[PostConstants.captionKey] as? String,
+        let timestamp = record[PostConstants.timestampKey] as? Date,
+        let imageAsset = record[PostConstants.imageAssetKey] as? CKAsset
+        else {return nil}
+        
+        //This should never fail
+        guard let photoData = try? Data(contentsOf: imageAsset.fileURL!) else {return nil}
+        guard let photo = UIImage(data: photoData)
+            else {return nil}
+        
+        
+        self.init(photo: photo, caption: caption, timestamp: timestamp, comments: [], recordID: record.recordID)
+    }
+    
+//     init?(record: CKRecord) {
+//        guard let caption = record[PostConstants.captionKey] as? String,
+//        let timestamp = record[PostConstants.timestampKey] as? Date,
+//        let imageAsset = record[PostConstants.imageAssetKey] as? CKAsset,
+//        let recordID = record[PostConstants.recordIDKey] as? String,
+//        let comments = record[PostConstants.commentsKey] as? [Comment]
+//            else {return nil }
+//
+//        self.caption = caption
+//        self.timestamp = timestamp
+//        self.recordID = recordID
+//        self.comments = comments
+//
+//        do {
+//            try self.photoData = Data(contentsOf: imageAsset.fileURL!)
+//        } catch let error {
+//            print("error retrieving photo from URL \(error), \(error.localizedDescription)")
+//        }
+//    }
+    
     func matches(searchTerm: String) -> Bool {
         if caption.lowercased().contains(searchTerm.lowercased()) {
             return true
@@ -23,27 +97,24 @@ class Post: SearchableRecordDelegate {
         }
         return false
     }
-    
-    
-    var photoData: Data?
-    var timestamp: Date
-    var caption: String
-    var comments: [Comment]
-    
-    var photo: UIImage? {
-        get {
-            guard let data = photoData else {return nil}
-            return UIImage(data: data)
-        } set {
-            photoData = newValue?.jpegData(compressionQuality: 0.5)
-        }
+}
+
+extension CKRecord {
+    convenience init(post: Post) {
+        self.init(recordType: PostConstants.recordType)
+        self.setValue(post.caption, forKey: PostConstants.captionKey)
+        self.setValue(post.timestamp, forKey: PostConstants.timestampKey)
+        self.setValue(post.imageAsset, forKey: PostConstants.imageAssetKey)
+        self.setValue(post.recordID, forKey: PostConstants.recordIDKey)
+        self.setValue(post.comments, forKey: PostConstants.commentsKey)
     }
-    
-    init(photo: UIImage, caption: String, timestamp: Date = Date(), comments: [Comment] = []) {
-        
-        self.caption = caption
-        self.timestamp = timestamp
-        self.comments = comments
-        self.photo = photo
-    }
+}
+
+struct PostConstants {
+    static let recordType = "Post"
+    fileprivate static let recordIDKey = "RecordID"
+    fileprivate static let captionKey = "Caption"
+    fileprivate static let timestampKey = "Timestamp"
+    fileprivate static let imageAssetKey = "ImageAsset"
+    fileprivate static let commentsKey = "Comments"
 }
