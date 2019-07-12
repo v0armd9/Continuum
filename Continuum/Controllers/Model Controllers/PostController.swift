@@ -33,8 +33,25 @@ class PostController {
             }
             guard let record = record,
                 let comment = Comment(record: record, post: post) else {completion(nil); return}
+            self.incrementCommentCount(for: post, completion: nil)
             completion(comment)
         }
+    }
+    
+    func incrementCommentCount(for post: Post, completion: ((Bool)->Void)?) {
+        post.commentCount += 1
+        let operation = CKModifyRecordsOperation(recordsToSave: [CKRecord(post: post)], recordIDsToDelete: nil)
+        operation.savePolicy = .changedKeys
+        operation.modifyRecordsCompletionBlock = { (records, _, error) in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                completion?(false)
+                return
+            } else {
+                completion?(true)
+            }
+        }
+        publicDB.add(operation)
     }
     
     func createPostWith(image: UIImage, caption: String, completion: @escaping(Post?) -> Void) {

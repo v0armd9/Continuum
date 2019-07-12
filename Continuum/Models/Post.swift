@@ -17,6 +17,7 @@ class Post: SearchableRecordDelegate {
     var caption: String
     var comments: [Comment]
     var recordID: CKRecord.ID
+    var commentCount: Int
     
     var photo: UIImage? {
         get {
@@ -41,19 +42,21 @@ class Post: SearchableRecordDelegate {
         }
     }
     
-    init(photo: UIImage, caption: String, timestamp: Date = Date(), comments: [Comment] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(photo: UIImage, caption: String, timestamp: Date = Date(), comments: [Comment] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), commentCount: Int = 0) {
         
         self.caption = caption
         self.timestamp = timestamp
         self.comments = comments
         self.recordID = recordID
+        self.commentCount = commentCount
         self.photo = photo
     }
     
     convenience init?(record: CKRecord) {
         guard let caption = record[PostConstants.captionKey] as? String,
         let timestamp = record[PostConstants.timestampKey] as? Date,
-        let imageAsset = record[PostConstants.imageAssetKey] as? CKAsset
+        let imageAsset = record[PostConstants.imageAssetKey] as? CKAsset,
+        let commentCount = record[PostConstants.commentCountKey] as? Int
         else {return nil}
         
         //This should never fail
@@ -62,7 +65,7 @@ class Post: SearchableRecordDelegate {
             else {return nil}
         
         
-        self.init(photo: photo, caption: caption, timestamp: timestamp, recordID: record.recordID)
+        self.init(photo: photo, caption: caption, timestamp: timestamp, recordID: record.recordID, commentCount: commentCount)
     }
     
 //     init?(record: CKRecord) {
@@ -105,6 +108,7 @@ extension CKRecord {
         self.setValue(post.caption, forKey: PostConstants.captionKey)
         self.setValue(post.timestamp, forKey: PostConstants.timestampKey)
         self.setValue(post.imageAsset, forKey: PostConstants.imageAssetKey)
+        self.setValue(post.commentCount, forKey: PostConstants.commentCountKey)
 //        self.setValue(post.comments, forKey: PostConstants.commentsKey)
     }
 }
@@ -115,5 +119,6 @@ struct PostConstants {
     fileprivate static let captionKey = "Caption"
     fileprivate static let timestampKey = "Timestamp"
     fileprivate static let imageAssetKey = "ImageAsset"
+    fileprivate static let commentCountKey = "CommentCount"
 //    fileprivate static let commentsKey = "Comments"
 }
