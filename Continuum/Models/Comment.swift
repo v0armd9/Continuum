@@ -58,8 +58,8 @@ extension CKRecord {
 
 struct CommentConstants {
     static let recordType = "Comment"
+    static let recordReferenceKey = "RecordReference"
     fileprivate static let textKey = "Text"
     fileprivate static let timestampKey = "Timestamp"
     fileprivate static let recordIDKey = "RecordID"
-    fileprivate static let recordReferenceKey = "RecordReference"
 }

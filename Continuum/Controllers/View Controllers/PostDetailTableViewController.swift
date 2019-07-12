@@ -21,6 +21,13 @@ class PostDetailTableViewController: UITableViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let post = post {
+            PostController.sharedInstance.fetchComment(for: post) { (comments) in
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     @IBAction func commentButtonTapped(_ sender: UIButton) {

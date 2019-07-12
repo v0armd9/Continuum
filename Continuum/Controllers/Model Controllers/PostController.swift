@@ -66,5 +66,26 @@ class PostController {
             completion(posts)
         }
     }
+    
+    func fetchComment(for post: Post, completion: @escaping ([Comment]?) -> Void) {
+        let postReference = post.recordID
+        let predicate = NSPredicate(format: "%K == %@", CommentConstants.recordReferenceKey, postReference)
+        let commentIDs = post.comments.compactMap({ $0.recordID})
+        let predicate2 = NSPredicate(format: "NOT(recordID IN %@)", commentIDs)
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
+        let query = CKQuery(recordType: CommentConstants.recordType, predicate: compoundPredicate)
+        publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                completion(nil)
+                return
+            }
+            guard let records = records else {completion(nil); return}
+            let comments = records.compactMap{ Comment(record: $0, post: post)}
+            post.comments.append(contentsOf: comments)
+            completion(comments)
+        }
+    }
+    
 }//End of Class
 
